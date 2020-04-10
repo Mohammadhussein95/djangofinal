@@ -27,8 +27,8 @@ pipeline {
      stage ("Install Application Dependencies") {
          steps {
             sh '''
-            source project/bin/activate
-            pip install -r <relative path to requirements file>
+            source testvir/project/bin/activate
+//            pip install -r <relative path to requirements file>
             deactivate
            '''
          }
@@ -38,8 +38,8 @@ pipeline {
      stage ("Collect Static files") {
          steps {
             sh '''
-            source project/bin/activate
-            python manage.py collectstatic --noinput
+            source testvir/project/bin/activate
+            python3 manage.py collectstatic --noinput
             deactivate
            '''
          }    }
