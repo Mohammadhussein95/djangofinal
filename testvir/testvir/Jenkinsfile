@@ -1,0 +1,34 @@
+pipeline {
+    agent {
+        node {
+            label 'master'
+             def installed = fileExists 'bin/activate'
+             
+             if (!installed) {
+                 stage("Install Python Virtual Enviroment") {
+                 echo 'Virtual env not found'       
+        }
+     }
+    }
+    
+   
+      
+  
+   
+    stage ("Install Application Dependencies") {
+        sh '''
+            source project/bin/activate
+            pip install -r <relative path to requirements file>
+            deactivate
+           '''
+    }
+    
+    
+    stage ("Collect Static files") {
+        sh '''
+            source project/bin/activate
+            python manage.py collectstatic --noinput
+            deactivate
+           '''
+    }
+  
