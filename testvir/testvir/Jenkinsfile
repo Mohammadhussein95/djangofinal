@@ -27,7 +27,7 @@ pipeline {
      stage ("Install Application Dependencies") {
          steps {
             sh '''
-            source testvir/project/bin/activate
+            source ~/testvir/project/bin/activate
 //            pip install -r <relative path to requirements file>
             deactivate
            '''
