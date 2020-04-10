@@ -10,6 +10,7 @@ pipeline {
         }
      }
     }
+    }
     
    
       
@@ -31,4 +32,4 @@ pipeline {
             deactivate
            '''
     }
-  
+    }
