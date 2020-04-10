@@ -11,7 +11,7 @@ pipeline {
       
     stages {
    
-        stage ("test"){
+    /*    stage ("test"){
             steps {
                      def installed = fileExists 'bin/activate'
              
@@ -22,7 +22,8 @@ pipeline {
      }
             }
         }   
-   
+   */
+        
      stage ("Install Application Dependencies") {
          steps {
             sh '''
