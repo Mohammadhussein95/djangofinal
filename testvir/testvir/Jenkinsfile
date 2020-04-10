@@ -2,19 +2,26 @@ pipeline {
     agent {
         node {
             label 'master'
- /*            def installed = fileExists 'bin/activate'
+ 
              
-             if (!installed) {
-                 stage("Install Python Virtual Enviroment") {
-                 echo 'Virtual env not found'       
-        }
-     }*/
     }
     }
     
    
       
     stages {
+   
+        stage ("test"){
+            steps {
+                     def installed = fileExists 'bin/activate'
+             
+             if (!installed) {
+                 stage("Install Python Virtual Enviroment") {
+                 echo 'Virtual env not found'       
+        }
+     }
+            }
+        }   
    
      stage ("Install Application Dependencies") {
          steps {
